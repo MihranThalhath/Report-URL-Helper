@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="act_report_xml_view_tree_inherit_base" model="ir.ui.view">
+        <field name="name">ir.actions.report.view.form.inherit</field>
+        <field name="model">ir.actions.report</field>
+        <field name="inherit_id" ref="base.act_report_xml_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='attachment']" position="after">
+                <field name="report_url" optional="hide" widget="url" groups="report_url_helper.group_report_url" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

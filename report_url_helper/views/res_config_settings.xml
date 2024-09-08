@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.base.setup</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="0"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//app[@name='general_settings']" position="inside">
+                <block title="Report URL Helper" id="report_url_helper_settings">
+                    <setting help="This will show the Print URL in the Cog Menu for all users" groups="report_url_helper.group_report_url">
+                        <field name="is_show_print_url_cog_menu" />
+                    </setting>
+                    <setting help="This will hide the Default Print Cog Menu for all users" groups="report_url_helper.group_report_url" invisible="not is_show_print_url_cog_menu">
+                        <field name="is_hide_default_print_cog_menu" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
