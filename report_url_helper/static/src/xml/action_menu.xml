@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="report_url_helper.ActionMenus" t-inherit="web.ActionMenus" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_cp_action_menus')]//DropdownMenu[@t-if='printItems.length']" position="after">
+                <DropdownMenu t-if="printURLItems.length"
+                    title="printURLButtonStrings.title"
+                    items="printURLItems"
+                    icon="'fa fa-external-link'"
+                    hotkey="'shift+o'"
+                    hotkeyTitle="printURLButtonStrings.hotkey"
+                />
+        </xpath>
+    </t>
+
+</templates>

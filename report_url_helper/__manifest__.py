@@ -5,9 +5,10 @@
     "summary": """QWeb development made easier.""",
     "author": "Mihran Thalhath",
     "website": "https://github.com/MihranThalhath",
-    "version": "17.0.1.0.0",
+    "version": "15.0.1.0.0",
     "depends": [
         "base",
+        "base_setup",
         "web",
     ],
     "data": [
@@ -17,9 +18,11 @@
     ],
     "assets": {
         "web.assets_backend": [
-            "report_url_helper/static/src/**/*.js",
-            "report_url_helper/static/src/**/*.xml",
-        ]
+            "report_url_helper/static/src/js/*.js",
+        ],
+        "web.assets_qweb": [
+            "report_url_helper/static/src/xml/*.xml",
+        ],
     },
     "installable": True,
     "license": "AGPL-3",
