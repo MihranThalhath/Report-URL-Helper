@@ -1,20 +1,16 @@
 /** @odoo-module **/
 
-import { CogMenu } from "@web/search/cog_menu/cog_menu";
+import { ActionMenus } from "@web/search/action_menus/action_menus";
 import { patch } from "@web/core/utils/patch";
 import { session } from '@web/session';
 import { useService } from "@web/core/utils/hooks";
 
-patch(CogMenu.prototype, {
+patch(ActionMenus.prototype, "report_url_helper.ActionMenus", {
     setup() {
-        super.setup();
+        this._super();
         this.orm = useService("orm");
-    },
-    get defaultPrintVisibility() {
-        return session.is_hide_default_print_cog_menu;
-    },
-    get printUrlVisibility() {
-        return session.is_show_print_url_cog_menu;
+        this.is_show_print_url_cog_menu = session.is_show_print_url_cog_menu;
+        this.is_hide_default_print_cog_menu = session.is_hide_default_print_cog_menu;
     },
     async onPrintUrlSelected(item) {
         if (!item || !item.key) {

@@ -5,9 +5,10 @@
     "summary": """QWeb development made easier.""",
     "author": "Mihran Thalhath",
     "website": "https://github.com/MihranThalhath",
-    "version": "17.0.1.0.0",
+    "version": "16.0.1.0.0",
     "depends": [
         "base",
+        "base_setup",
         "web",
     ],
     "data": [

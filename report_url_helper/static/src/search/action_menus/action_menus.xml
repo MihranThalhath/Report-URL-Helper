@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="report_url_helper.ActionMenus" t-inherit="web.ActionMenus" t-inherit-mode="extension" owl="1">
+        <xpath expr="//Dropdown[@t-if='printItems.length']" position="after">
+            <Dropdown t-if="printItems.length &amp;&amp; is_show_print_url_cog_menu" class="'d-inline-block'" togglerClass="'btn btn-light'" hotkey="'shift+o'">
+                <t t-set-slot="toggler">
+                    <i class="me-md-1 fa fa-external-link"/>
+                    <t t-if="is_hide_default_print_cog_menu">
+                        <span class="o_dropdown_title">Print</span>
+                    </t>
+                    <t t-else="">
+                        <span class="o_dropdown_title">Print URL</span>
+                    </t>
+                </t>
+                <t t-foreach="printItems" t-as="item" t-key="item.key">
+                    <DropdownItem class="'o_menu_item'" onSelected="() => this.onPrintUrlSelected(item)">
+                        <t t-esc="item.description"/>
+                    </DropdownItem>
+                </t>
+            </Dropdown>
+        </xpath>
+
+        <xpath expr="//Dropdown[@t-if='printItems.length']" position="attributes">
+            <attribute name="t-if">printItems.length &amp;&amp; !is_hide_default_print_cog_menu</attribute>
+        </xpath>
+
+    </t>
+
+</templates>
